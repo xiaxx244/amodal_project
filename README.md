@@ -23,13 +23,18 @@
   - `experiments/segmentation/train.py`: training code
   - `experiments/segmentation/test.py`: testing code
 
-4. training:
+4. Data preparation :
+  - `fgmask.py`:Create the foreground mask required for training
+  - `convert.py`:Create the amodal road groundtruth mask required for training
+  - `ccsv.py`:Create the csv containing paths to all image data, amodal road data and foregroud mask data required for training and testing
+
+5. training:
 
 ```shell (example)
    cd experiments/segmentation
    CUDA_VISIBLE_DEVICES=0,1 python3 train.py --model danet --backbone resnet50 --checkname danet50 --base-size 1024 --crop-size 768 --epochs 240 --batch-size 8 --lr 0.003 --workers 16  
 ```
-5. testing:
+6. testing:
 
 ```shell (example)
    cd experiments/segmentation
