@@ -94,13 +94,13 @@ cfg.MODEL.ROI_HEADS.NUM_CLASSES = 6  # only has one class (ballon). (see https:/
 
 cfg.OUTPUT_DIR="sunny_train1/"
 
-'''
+
 #cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 trainer = DefaultTrainer(cfg)
 trainer.resume_or_load(resume=False)
 trainer.train()
-'''
+
 cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")  # path to the model we just trained
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.7   # set a custom testing threshold
 predictor = DefaultPredictor(cfg)
@@ -118,10 +118,10 @@ for d in dataset_dicts:
     out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
     cv2.imwrite("output/sun2snow/"+d["file_name"].split("/")[-3]+"_"+d["file_name"].split("/")[-1],out.get_image()[:, :, ::-1])
 
-'''
+
 from detectron2.evaluation import COCOEvaluator, inference_on_dataset
 from detectron2.data import build_detection_test_loader
 evaluator = COCOEvaluator("amodal_val", output_dir="./output_sunny_rain")
 val_loader = build_detection_test_loader(cfg, "amodal_val")
 print(inference_on_dataset(predictor.model, val_loader, evaluator))
-'''
+
