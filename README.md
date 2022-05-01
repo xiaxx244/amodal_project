@@ -24,9 +24,9 @@
   - `experiments/segmentation/test.py`: testing code
 
 4. Data preparation :
-  - `fgmask.py`:Create the foreground mask required for training
-  - `convert.py`:Create the amodal road groundtruth mask required for training
-  - `ccsv.py`:Create the csv containing paths to all image data, amodal road data and foregroud mask data required for training and testing
+  - `fgmask.py`: Create the foreground mask required for training
+  - `convert.py`: Create the amodal road groundtruth binary mask required for training
+  - `ccsv.py`: Create the csv file containing paths to all image data, amodal road data and foregroud mask data required for training and testing
 
 5. training:
 
