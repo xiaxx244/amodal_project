@@ -47,3 +47,13 @@
 
 [DANet](https://github.com/junfu1115/DANet.git)
 
+# amodal_instance segmentation
+1. amodal instance segmentation using amodal datasets 
+2. code modified based on Detectron2
+
+## Usage
+
+1. training & testing:
+```shell (example)
+   python exp_weather.py
+```
